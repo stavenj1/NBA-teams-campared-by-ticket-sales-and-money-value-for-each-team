@@ -1,0 +1,33 @@
+library(readr)
+data<-read_csv("data.csv")
+dim(data)
+names(data)
+summary(data)
+
+# descriptigve statistics
+mean(data$money_value)
+sd(data$money_value)
+min(data$money_value)
+max(data$money_value)
+
+mean(data$ticket_sales)
+sd(data$ticket_sales)
+min(data$ticket_sales)
+max(data$ticket_sales)
+
+# linear regression test
+lm <- lm(money_value ~ ticket_sales, data = data)
+summary(lm)
+
+
+#scatter plot
+plot <- plot(data$money_value, data$ticket_sales)
+print(plot)
+
+# add x line and y line for means
+meany <- mean(data$money_value)
+meanx <- mean(data$ticket_sales)
+
+
+abline(v = meany, col = "black")
+abline(h = meanx, col = "black")
